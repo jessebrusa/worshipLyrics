@@ -4,7 +4,7 @@ class Controls {
     constructor(data) {
         this.data = data;
         this.app = document.querySelector('#app');
-        this.modal = new Modal();
+        this.modal = new Modal(this.data);
     }
 
     render() {
@@ -32,8 +32,13 @@ class Controls {
 
     submitSection() {
         const sectionName = this.modal.getInputValue();
-        console.log(`Section created: ${sectionName}`);
-        this.modal.hide();
+        if (this.data.sectionExists(sectionName)) {
+            alert(`Section "${sectionName}" already exists. Please try another name.`);
+        } else {
+            this.data.createSection(sectionName);
+            console.log(this.data.getData());
+            this.modal.hide();
+        }
     }
 }
 
