@@ -1,4 +1,5 @@
 import Modal from './controlModules/modal.js';
+import Section from './section.js';
 
 class Controls {
     constructor(data) {
@@ -38,6 +39,7 @@ class Controls {
             this.data.createSection(sectionName);
             console.log(this.data.getData());
             this.modal.hide();
+            new Section(sectionName).render();
         }
     }
 }

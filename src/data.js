@@ -20,7 +20,7 @@ class Data {
             alert(`Section "${sectionName}" already exists.`);
             return false;
         } else {
-            this.data[sectionName] = {};
+            this.data[sectionName] = [];
             return true;
         }
     }
